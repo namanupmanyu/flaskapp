@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa; /* Light blue background */
+            margin: 0;
+            padding: 0;
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: auto;
+            padding: 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            margin-top: 100px; /* Centering vertically */
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+            color: #00796b; /* Dark teal color */
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid #00796b; /* Dark teal border */
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: #004d40; /* Darker teal on focus */
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #00796b; /* Dark teal background */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #004d40; /* Darker teal on hover */
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .footer span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form method="post">
+            <input type="text" name="username" placeholder="Username" value="admin" required>
+            <input type="password" name="password" placeholder="Password" value="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div class="footer">
+            <p>Default Credentials:</p>
+            <p><span>Username:</span> admin</p>
+            <p><span>Password:</span> password</p>
+        </div>
+    </div>
+</body>
+</html>
+
