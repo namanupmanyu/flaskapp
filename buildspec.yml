@@ -24,6 +24,14 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - printf '[{"name":"flask-app","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      
+      # Register the ECS task definition
+      - echo Registering the ECS task definition...
+      - TASK_DEFINITION_FILE=path/to/your/task-definition.json  # Adjust the path accordingly
+      - aws ecs register-task-definition --cli-input-json file://taskdefinition.json
 
 artifacts:
-  files: imagedefinitions.json
+  files:
+    - imagedefinitions.json
+    - path/to/your/task-definition.json  # Adjust the path accordingly
+
