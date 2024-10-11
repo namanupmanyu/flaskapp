@@ -14,7 +14,7 @@
         }
 
         .hill-stations-container {
-            max-width: 600px;
+            max-width: 800px;
             margin: auto;
             padding: 20px;
             background: white;
@@ -24,6 +24,7 @@
 
         h2 {
             text-align: center;
+            color: #333;
         }
 
         ul {
@@ -37,13 +38,42 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             background: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         h3 {
             margin: 0;
+            color: #007bff;
         }
 
-        a {
+        img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        p {
+            text-align: center;
+            color: #555;
+        }
+
+        .visit-button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .visit-button:hover {
+            background-color: #0056b3;
+        }
+
+        .logout-link {
             display: block;
             text-align: center;
             margin-top: 20px;
@@ -51,7 +81,7 @@
             text-decoration: none;
         }
 
-        a:hover {
+        .logout-link:hover {
             text-decoration: underline;
         }
     </style>
@@ -60,15 +90,43 @@
     <div class="hill-stations-container">
         <h2>Popular Hill Stations</h2>
         <ul>
-            {% for station in stations %}
-                <li>
-                    <h3>{{ station.name }}</h3>
-                    <p><strong>State:</strong> {{ station.state }}</p>
-                    <p>{{ station.description }}</p>
-                </li>
-            {% endfor %}
+            <li>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Manali_%28Himachal_Pradesh%29_%28cropped%29.jpg/800px-Manali_%28Himachal_Pradesh%29_%28cropped%29.jpg" alt="Manali">
+                <h3>Manali</h3>
+                <p><strong>State:</strong> Himachal Pradesh</p>
+                <p>A popular hill station known for its scenic beauty.</p>
+                <a href="https://www.himachaltourism.gov.in/manali" class="visit-button">Visit Here</a>
+            </li>
+            <li>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Beautiful_Shimla.jpg/800px-Beautiful_Shimla.jpg" alt="Shimla">
+                <h3>Shimla</h3>
+                <p><strong>State:</strong> Himachal Pradesh</p>
+                <p>The capital city of Himachal Pradesh, famous for its Victorian architecture.</p>
+                <a href="https://www.himachaltourism.gov.in/shimla" class="visit-button">Visit Here</a>
+            </li>
+            <li>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Darjeeling_Sunset.jpg/800px-Darjeeling_Sunset.jpg" alt="Darjeeling">
+                <h3>Darjeeling</h3>
+                <p><strong>State:</strong> West Bengal</p>
+                <p>Known for its tea plantations and stunning views of the Himalayas.</p>
+                <a href="https://www.westbengaltourism.gov.in/darjeeling" class="visit-button">Visit Here</a>
+            </li>
+            <li>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Nainital.jpg/800px-Nainital.jpg" alt="Nainital">
+                <h3>Nainital</h3>
+                <p><strong>State:</strong> Uttarakhand</p>
+                <p>A beautiful hill station located around a lake.</p>
+                <a href="https://www.uktourism.gov.in/nainital" class="visit-button">Visit Here</a>
+            </li>
+            <li>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Ooty_Garden.jpg/800px-Ooty_Garden.jpg" alt="Ooty">
+                <h3>Ooty</h3>
+                <p><strong>State:</strong> Tamil Nadu</p>
+                <p>A popular hill station known for its gardens and pleasant weather.</p>
+                <a href="https://www.tamilnadutourism.tn.gov.in/ooty" class="visit-button">Visit Here</a>
+            </li>
         </ul>
-        <a href="{{ url_for('logout') }}">Logout</a>
+        <a class="logout-link" href="{{ url_for('logout') }}">Logout</a>
     </div>
 </body>
 </html>
