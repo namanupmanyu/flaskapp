@@ -3,10 +3,10 @@
   "taskDefinition": {
     "containerDefinitions": [
       {
-        "name": "flask-container",
-        "image": "211125469773.dkr.ecr.ap-south-1.amazonaws.com/flask-app/your-flask-app:latest",
+        "name": "microservices-cluster",
+        "image": "211125469773.dkr.ecr.ap-south-1.amazonaws.com/flask-app:latest",  // Replace with your actual image URI
         "memory": 512,
-        "essential":true,
+        "essential": true,
         "portMappings": [
           {
             "containerPort": 80,
@@ -35,4 +35,3 @@
     "memory": "512"
   }
 }
-
