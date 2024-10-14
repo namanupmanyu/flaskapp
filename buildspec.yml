@@ -8,7 +8,7 @@ phases:
       - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 211125469773.dkr.ecr.ap-south-1.amazonaws.com/flask-app
       - REPOSITORY_URI=211125469773.dkr.ecr.ap-south-1.amazonaws.com/flask-app
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
-      - IMAGE_TAG=${COMMIT_HASH:=latest}
+      - IMAGE_TAG=${COMMIT_HASH:-latest}  # Fixed the default value syntax
 
   build:
     commands:
@@ -27,11 +27,11 @@ phases:
       
       # Register the ECS task definition
       - echo Registering the ECS task definition...
-      - TASK_DEFINITION_FILE=path/to/your/task-definition.json  # Adjust the path accordingly
-      - aws ecs register-task-definition --cli-input-json file://taskdefinition.json
+      - aws ecs register-task-definition --cli-input-json file://taskdefinition.json  # Directly referencing taskdefinition.json
 
 artifacts:
   files:
     - imagedefinitions.json
-    - path/to/your/task-definition.json  # Adjust the path accordingly
+    - taskdefinition.json  # Removed the path part, assuming it's in the root directory
+
 
