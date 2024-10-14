@@ -4,7 +4,7 @@
     "containerDefinitions": [
       {
         "name": "microservices-cluster",
-        "image": "211125469773.dkr.ecr.ap-south-1.amazonaws.com/flask-app:latest",  // Replace with your actual image URI
+        "image": "211125469773.dkr.ecr.ap-south-1.amazonaws.com/flask-app:latest",
         "memory": 512,
         "essential": true,
         "portMappings": [
