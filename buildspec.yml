@@ -27,7 +27,7 @@ phases:
       
       # Register the ECS task definition
       - echo Registering the ECS task definition...
-      - aws ecs register-task-definition --cli-input-json file://taskdefinition.json --debug
+      
 
 
 artifacts:
